@@ -2,12 +2,13 @@ import axios from 'axios';
 
 // Create axios instance with base configuration
 const api = axios.create({
-  baseURL: 'https://uniseat-backend.onrender.com/',
+  baseURL: import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000/api',
   timeout: 10000,
-  headers: {
-    'Content-Type': 'application/json',
-  },
+  headers: { 'Content-Type': 'application/json' },
 });
+
+
+
 
 // Request interceptor to add auth token
 api.interceptors.request.use(
